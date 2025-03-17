@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Dialog</title>
+
+    <style>
+        .dialog-bg {
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dialog {
+            height: 50vh;
+            width: 50vw;
+            background-color: white;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+
+    <script>
+        function openDialog(abc){
+            document.getElementById('dialog').classList.remove('d-none');
+            document.getElementById('dialog-message').innerHTML = abc;
+        };
+
+        function closeDialog(){
+            document.getElementById('dialog').classList.add('d-none');
+        };
+    </script>
+</head>
+<body>
+    <div id="dialog" class="dialog-bg d-none" onclick="closeDialog()">
+        <div class="dialog">
+            <h2>Dialog</h2>
+            <p id="dialog-message">Informationen</p>
+        </div>
+    </div>
+
+    <h1>Überschrift</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque sequi accusantium, vero illum at dignissimos dolore magnam quia nemo ipsum, ullam dicta consectetur? Eligendi sint architecto aperiam est optio placeat.
+    </p>
+    <button onclick="openDialog('Hallo, das ist ein Test')">Dialog 1 öffnen</button>
+    <button onclick="openDialog('Es existieren keine pinken Elefanten')">Dialog 2 öffnen</button>
+</body>
+</html>

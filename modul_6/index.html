@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pfannkuchen</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table td,
+      table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      table tr:hover {
+        background-color: #ddd;
+      }
+
+      table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04aa6d;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Rezept für Pfannkuchen</h1>
+    <button onclick="addAll()">Zutat 1</button>
+    <button onclick="addIng1()">Zutat 2</button>
+    <button onclick="addIng2()">Zutat 3</button>
+    <table>
+      <tbody id="table">
+        <tr>
+          <td>Menge</td>
+          <td>Zutat</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Eier</td>
+        </tr>
+      </tbody>
+    </table>
+    <input placeholder="Zutat eingeben" id="inputZutat" type="text">
+    <input placeholder="Menge eingeben" id="inputMenge" type="text">
+    <button onclick="addNew()">Hinzufügen</button>
+
+    <script>
+
+      function addNew() {
+        let menge = document.getElementById('inputMenge').value;
+        let zutat = document.getElementById('inputZutat').value;
+        addIngredient(menge, zutat);
+        document.getElementById('inputMenge').value = ''; 
+        document.getElementById('inputzutat').value = '';
+      }
+      function addIngredient(menge, zutat) {}
+
+      function addAll() {
+        addIng1('1 Prise, Salz');
+        addIng2('400g, Mehl');
+        addIng('750ml, Milch');
+      }
+
+      function addIng1(menge, zutat) {
+        document.getElementById('table').innerHTML += '<tr><td>1 Prise</td><td>Salz</td></tr>';
+
+      }
+
+      function addIng2(menge, zutat) {
+        document.getElementById('table').innerHTML += '<tr><td>400g</td><td>Mehl</td></tr>';
+
+      }
+    </script>
+  </body>
+</html>

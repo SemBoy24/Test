@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+
+    <style>
+        body {
+            background-color: rgb(32, 33, 36);
+            margin: 0;
+        }
+
+        .headline {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        p {
+            margin-top: -8px;
+            font-size: 16px;
+        }
+
+        .seperator {
+            padding: 1px;
+            background-color: gray;
+            margin-top: 12px;
+        }
+
+        .saver {
+            display: flex;
+            justify-content: center;
+            margin-top: 64px;
+            border-color: gray;
+            border-radius: 32px;
+        }
+
+        .input_field {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 170px;
+        }
+
+        .line_break {
+          width: 170px;
+          resize: none;
+        }
+
+        .card {
+            display: -webkit-inline-box;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 10px rgb(82 83 86);
+            padding: 8px;
+            margin-bottom: 32px;
+            color: white;
+            margin-top: 64px;
+            margin-left: 10%;
+            margin-right: 10%;
+            background-color: white;
+            color: black;
+        }
+
+        .trash {
+            width: 80px;
+            position: absolute;
+            top: 170px;
+            background-color: gray;
+            border-color: gray;
+            border-radius: 20px;
+        }
+
+    </style>
+
+    <script>
+        let titles = ['sem ist cool', 'Munichscousis'];
+        let notes = ['das ist true','haben die besten memes'];
+        var trashNoteCaption = titles 
+        var trashNoteContent = notes
+        load();
+
+        function render() {
+        let content = document.getElementById('content');
+        content.innerHTML = '';
+        content.innerHTML = `
+       
+        <div class="saver">
+          <div class="input_field">
+            <input required placeholder="Titel schreiben..." id="title">
+            <textarea required class="line_break" placeholder="Notiz schreiben..." id="note"></textarea>
+        </div>
+            <button onclick="addNote()">Hinzufügen</button>
+        </div>
+        `;
+
+        for (let i = 0; i < titles.length; i++) {
+          const title = titles[i];
+          const note = notes[i];
+
+          content.innerHTML += `
+          <div class="card"> 
+            <b>Titel:</b> ${title} <br>
+            <b>Notiz: </b> ${note} <br>
+            <button onclick="deleteNote(${i})">Löschen</button>
+        </div>`;
+        }
+    }
+
+    function addNote() {
+        let title = document.getElementById('title');
+        let note = document.getElementById('note');
+
+        if (title.value == '') {
+        }
+        else {
+          titles.push(title.value);
+        }
+
+        if (note.value == '') {
+        }
+        else {
+          notes.push(note.value);
+          render();
+          save();
+        }
+        
+        
+        
+      }
+
+      // function deleteNote(i) {
+      //   titles.splice(i, 1);
+      //   notes.splice(i, 1);
+      //   render();
+      //   save();
+      // }
+
+      function save() {
+        let titlesAsText = JSON.stringify(titles);
+        localStorage.setItem('title', titlesAsText);
+      }
+
+      function load() {
+        let titlesAsText = localStorage.getItem('titles');
+        let notesAsText = localStorage.getItem('notes');
+        if (titlesAsText && notesAsText) {
+        titles = JSON.parse(titlesAsText);
+        notes = JSON.parse(notesAsText);
+        }
+      }
+
+      function throwNoteInBin(i) {
+        let trashcan = document.getElementById('trashcan');
+        trashcan.innerHTML = '';
+
+        for (x =0 ;x < trashNoteCaptions.length; x++) {
+          trashNoteCaption[x] = titles[i];
+          trashNoteContent[x] = notes[i];
+
+          bin.innerHTML += `
+            <div class="note">
+              <h2>${trashNoteCaption}</h3>s
+              <span>${trashNoteContent}</span>
+              <button onclick = "restoreNote(${x})">Wiederherstellen</button>
+              <button onclick = "deletePermanent(${x})">Endgültig löschen</button>
+            </div>
+    `;
+       }
+      }
+
+      function openTrashCan () {
+        var newDocument = window.open();
+        newDocument.document.write(render())
+      }
+
+      function handleEnterKeyPress(event) {
+        if (event.keyCode === 13) {
+          let textfeldInhalt = this.value;
+          let neuerInhalt = textfeldInhalt + '<br>' + '\n' ;
+          this.value = neuerInhalt;
+          event.preventDefault();
+        }
+      }
+
+    </script>
+
+
+<!-- function show(images) {
+  document.getElementById(images).classList.remove('d_none');
+}  -->
+
+
+</head>
+<body onload="render()">
+
+    <div class="headline">
+        <h1>Sems Notebook</h1>
+        <p>made by Sem</p>
+    </div> 
+        
+    <div class="seperator"></div>
+
+    <div class="seperator"></div>
+
+    <div class="background"></div>
+
+    <div>
+        <a id="trashcan" href="#">
+        <img class="trash" src="img/garbage_can.png" alt="garbage_can">
+        </a>
+    </div>
+
+    <div id="content"></div>
+    
+</body>
+</html>

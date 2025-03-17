@@ -1,0 +1,265 @@
+<div>
+    <!-- wenn der button inhalt in ein html text eingefügt werden soll -->
+    <body>
+        <h1>Programmier-Witze</h1>
+
+        <input id="namefield">
+        <button onclick="greetFromTextField()">Grüße</button>
+
+        <p id="greeting"></p>
+
+        <script>
+            function greetFromTextField() {
+                let name = document.getElementById('namefield').value;
+                greet(name);
+            }
+
+            function greet(x) {
+                document.getElementById('greeting').innerHTML = `Hallo ${x}, wie geht es dir?`;
+            }
+        </script>
+    </body>
+</div>
+
+
+
+<div>
+    <!--
+        wenn man mediaquarry padding automatisch kalkulieren will
+        padding: 64px max(160px, calc(50% - 960px));
+        /* calculation: (100% - 1920px)/2 = 50% - 960px */
+    -->
+</div>
+
+
+
+<div>
+    <!--
+        gap kann man nur nach display:flex
+    -->
+</div>
+
+
+
+
+<!--
+ein + vor dem document macht das ergebnis zu einer Zahl und kein Text
+
+ONLOAD nur an body möglich
+
+javascript rechnet immer in milisekunden (1000=1sekunde)
+
+if und else erklärt:    
+                        -If wird verwendet wenn etwas passieren soll nach einer bestimmten Aktion
+                        -Else wird verwendet wenn If nicht aktiviert wird
+
+in programmiersprache ist string=text
+-->
+
+
+
+<div>
+    <!--bild durch button ändern-->
+    <body>
+        <button onclick="image1()">Bild1</button>
+        <button onclick="image2()">Bild2</button>
+        <button onclick="image3()">Bild3</button>
+        <img id="image" src="Bild.jpg">
+    </body>
+    <script>
+        function image1() {
+            document.getElementById('image').src = 'Bild.jpg';
+        }
+
+        function image2() {
+            document.getElementById('image').src = 'Bild2.jpg';
+        }
+
+        function image3() {
+            document.getElementById('image').src = 'Bild3.jpg';
+        }
+    </script>
+</div>
+
+<div>
+    <!--bild automatisch durch button ändern-->
+    <body>
+        
+        <button onclick="image2()">Start!</button>
+       
+        <img id="image" src="Bild.jpg">
+    </body>
+    <script>
+        function image1() {
+            document.getElementById('image').src = 'Bild.jpg';
+            setTimeout(image2, 3000);
+        }
+
+        function image2() {
+            document.getElementById('image').src = 'Bild2.jpg';
+            setTimeout(image3, 3000);
+        }
+
+        function image3() {
+            document.getElementById('image').src = 'Bild3.jpg';
+            setTimeout(image1, 3000);
+        }
+    </script>
+</div>
+
+<div>
+    <!--bild automatisch ändern-->
+    <body onload="image1">
+        
+       
+        <img id="image" src="Bild.jpg">
+    </body>
+    <script>
+        function image1() {
+            document.getElementById('image').src = 'Bild.jpg';
+            setTimeout(image2, 3000);
+        }
+
+        function image2() {
+            document.getElementById('image').src = 'Bild2.jpg';
+            setTimeout(image3, 3000);
+        }
+
+        function image3() {
+            document.getElementById('image').src = 'Bild3.jpg';
+            setTimeout(image1, 3000);
+        }
+    </script>
+</div>
+
+
+<div>
+    <!--
+        remove und add erklärt
+        css wird genommen(add) und entfernt(remove)
+    -->
+</div>
+
+<div>
+    <!--
+        lokal daten speichern durch localStorage
+        Beispiel: 
+            function saveData() {
+            name = document.getElementById('input').value
+            localStorage.setItem('name', 'name')
+        })
+        so speichert man variabeln
+    -->
+</div>
+
+
+<div>
+    <!--
+        array permanent speichern
+
+        dieser code wird verwendet um zu speichern:
+        function  save(data) {
+          localStorage.setItem(data, JSON.stringify(array))  
+        }
+
+        dieser code wird verwendet um gespeicherte daten zu holen:
+        function getArray(data) {
+            return JSON.parse(localStorage.getItem(data))
+        }
+    -->
+</div>
+
+
+<div>
+    <!--
+        simpler facebook-fake
+    -->
+
+    <script>
+
+        let names = [];
+        let posts = [];
+
+        function addPost() {
+            let text = document.getElementById('massage').value;
+            let name = document.getElementById('name').value;
+            names.push(name);
+            posts.push(text);
+
+            let myposts = document.getElementById('myposts');
+            myposts.innerHTML = '';
+            for (let i = 0; i < posts.length; i++) {
+                myposts.innerHTML += `
+                <div class="post">
+                    b
+                    <b>${names[i]}</b><br>
+                    ${posts[i]}
+                </div>
+                `;
+            }
+
+            document.getElementById('message').value = '';
+        }
+
+    </script>
+    <body>
+        <input type="text" id="name" placeholder="Dein Name..."> 
+        <input type="text" id="massage" placeholder="Neuer Post..."> 
+        <button onclick="addPost()">Posten</button>
+
+        <div id="myPosts"></div>
+    </body>
+</div>
+
+
+
+
+
+<div>
+    <!--
+        Create
+        Read/Rertieve
+        Update
+        Delete/Destroy
+    -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+const menuValue = getValueFromInput('menu');
+
+
+
+
+
+let prices = document.getElementById('price');
+
+
+
+
+
+let menus = document.getElementById('price');
+  let amounts = document.getElementById('price');
+
+
+
+
+
+  if (menuValue) {
+    const trimmedMenuValue = menuValue.trim();
+    return trimmedMenuValue;
+    }
+    else {
+    console.error('menu');
+    return null;
+  }

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foto Gallerie</title>
+
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .d-none {
+        display: none;
+      }
+
+      .main-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .seperator {
+        padding: 1px;
+        background-color: gray;
+        margin-top: 8px;
+      }
+
+      .image {
+        margin: 5px;
+        width: 300px;
+        height: 200px;
+        border-radius: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .image:hover {
+        transform: scale(1.02);
+      }
+
+      .imagebox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .displayed-img {
+        width: 80%;
+        max-width: 1280px;
+        height: auto;
+        max-height: 1000px;
+        z-index: 2;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .img-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 80vw;
+        max-width: 1400px;
+        position: relative;
+      }
+
+      .arrow {
+        width: 50px;
+        cursor: pointer;
+        z-index: 999;
+      }
+
+      .single-image {
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .xmark {
+        color: white;
+        width: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    </style>
+
+    <script>
+      let images = [
+        "img/IMG_0.jpg",
+        "img/IMG_1.jpg",
+        "img/IMG_2.jpg",
+        "img/IMG_3.jpg",
+        "img/IMG_1162.jpg",
+        "img/IMG_1169.jpg",
+        "img/IMG_1175.jpg",
+        "img/IMG_1183.jpg",
+        "img/IMG_1189.jpg",
+        "img/IMG_1201.jpg",
+        "img/IMG_1205.jpg",
+        "img/IMG_1210.jpg",
+        "img/IMG_1216.jpg",
+        "img/IMG_1221.jpg",
+        "img/IMG_1223.jpg",
+        "img/IMG_1225.jpg",
+        "img/IMG_1227.jpg",
+        "img/IMG_1250.jpg",
+        "img/IMG_1262.jpg",
+        "img/IMG_1265.jpg",
+        "img/IMG_1267.jpg",
+        "img/IMG_1269.jpg",
+        "img/IMG_1271.jpg",
+        "img/IMG_1331.jpg",
+        "img/IMG_1333.jpg",
+        "img/IMG_1337.jpg",
+        "img/IMG_1339.jpg",
+      ];
+
+      let showPhoto = 0;
+
+      function load() {
+        for (let i = 0; i < images.length; i++) {
+          document.getElementById("galerie").innerHTML += `
+                <div onclick="openImage(${i})" class=""> <img class="image" src="${images[i]}">
+                </div>`;
+        }
+      }
+
+      function openImage(i) {
+        showPhoto = i;
+
+        let singleImg = document.getElementById("single-img");
+        singleImg.classList.remove("d-none");
+
+        singleImg.innerHTML = `
+        <div class="single-image">
+            <div class="img-buttons">
+                <img onclick="lastImage()" src="./img/arrow-left.svg" class="arrow">
+                <div class="close-img">
+                    <img class="displayed-img" src="${images[i]}" onclick="closeImage()">
+                    <img src="./img/xmark.svg" class="xmark" onclick="closeImage()">
+                </div>
+                <img onclick="nextImage()" src="./img/arrow-right.svg" class="arrow">
+            </div>
+        </div>
+    `;
+      }
+
+      function closeImage() {
+        document.getElementById("single-img").classList.add("d-none");
+      }
+
+      function nextImage() {
+        if (showPhoto < images.length - 1) {
+          showPhoto++;
+          openImage(showPhoto);
+        } else if (showPhoto == images.length - 1) {
+          showPhoto = 0;
+          openImage(showPhoto);
+        }
+      }
+
+      function lastImage() {
+        if (showPhoto < images.length && showPhoto > 0) {
+          showPhoto--;
+          openImage(showPhoto);
+        } else if (showPhoto == 0) {
+          showPhoto = images.length;
+          showPhoto--;
+          openImage(showPhoto);
+        }
+      }
+    </script>
+  </head>
+  <body onload="load()">
+    <div class="main-container">
+      <h1>Foto-Gallerie</h1>
+    </div>
+    <div class="seperator"></div>
+    <ul class="imagebox" id="galerie"></ul>
+    <div class="d-none" id="single-img"></div>
+  </body>
+</html>

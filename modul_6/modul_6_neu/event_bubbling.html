@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .outer{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .outer:hover{
+            background-color: orange;
+        }
+
+        .inner{
+            height: 50px;
+            width: 50px;
+            background-color: orangered;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner:hover{
+            background-color: darkblue;
+        }
+    </style>
+
+    <script>
+        function logDown() {
+            console.log("logDown");
+        }
+
+        function logUp() {
+            console.log("logUp");
+        }
+
+        function logDownWBubblingProtection(event) {
+            console.log("logDown");
+            event.stopPropagation()
+        }
+    </script>
+</head>
+<body onclick="console.log('bodyclick')">
+    <div onclick="logUp()" class="outer">
+        <div onclick="logDownWBubblingProtection(event)" class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+hier kommen styles rein die immer verwendet werden
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+}

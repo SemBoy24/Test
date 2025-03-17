@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .img {
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        .hover:hover {
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: rgba(51, 50, 50, 0.10);
+            padding-left: 6px;
+            box-shadow: 1px 1px;
+        }
+
+        .name {
+            padding-left: 10px;
+            font-size: 10px;
+            align-items: center;
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .post {
+            margin-top: 20px;
+            margin-left: 40%;
+            margin-right: 40%;
+            display: flex;
+            flex-direction: column;
+            border-bottom-style: solid;
+            border-bottom-color: rgb(201, 201, 201);
+            border-bottom-width: 0.5px;
+            margin-bottom: 50px;
+        }
+
+        .left_container {
+            position: fixed;
+            top: 0;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            font-size: 8px;
+        }
+
+        .right_container {
+            position: fixed;
+            top: 50px;
+            right: 180px;
+            font-size: 8px;
+        }
+
+        .header {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+
+        p {
+            margin-top: 24px;
+            line-height: 40px;
+        }
+
+        .string {
+            margin-bottom: 20px;
+        }
+
+        .seperator {
+            position: fixed;
+            top: 0;
+            width: 0.5px;
+            height: 1000px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(201, 201, 201);
+            margin-left: 15%;
+        }
+
+        .second_seperator {
+            height: 0.5px;
+            background-color: rgb(201, 201, 201);
+
+        }
+
+        h1 {
+            font-size: 14px;
+        }
+
+        h2 {
+            font-size: 8px;
+        }
+
+        .png {
+            width: 15px;
+            margin-right: 10px;
+        }
+
+        .btn {
+            width: 20px;
+            border: none;
+            background-color:white;
+        }
+
+        .btn2 {
+            width: 20px;
+            border: none;
+            background-color:white;
+        }
+
+        .follow {
+            position: absolute;
+            right: 100px;
+            background-color: white;
+            border: none;
+            font-size: 8px;
+            color: #149DF6;
+            position: relative;
+            left: 20px;
+        }
+
+        .accounts {
+            inset-inline: 10px;
+        }
+    </style>
+
+    <script>
+       
+        let posts = [{
+                'author': 'Spider-Man',
+                'image': 'img/imgbin_the-amazing-spider-man-2-rhino-film-superhero-movie-png.ico',
+                'description': 'Unser Held der in New York schwingt',
+                'location': 'New York',
+                'id': '0' 
+            },
+            {
+                'author': 'Peter Parker',
+                'image': 'img/sempb2.jpg',
+                'description': 'Meine geheime Identität',
+                'location': 'New York',
+                'id': '1' 
+            },
+            {
+                'author': 'Ubisoft',
+                'image': 'img/imgbin_assassins-creed-iii-assassins-creed-syndicate-assassins-creed-iv-black-flag-assassins-creed-origins-png.ico',
+                'description': 'Die Assassinen schlagen zurück!',
+                'location': '',
+                'id': '2' 
+            }
+        ];
+
+        function show(params) {
+            document.getElementById('postcontainer').innerHTML += '';
+
+            for (let i = 0; i < posts.length; i++) {
+                const post = posts[i]; 
+
+                document.getElementById('postcontainer').innerHTML += `
+                <div class="post">
+                    <div class="name">${post['author']}</div>
+                    <img class="img" src="${post['image']}">
+                    <div class="headline">${post['description']}</div>
+                    <div id="${post['id']}"><button onclick="colorChange(${post['id']})"class="btn"><img class="png" src="img/heart.png" alt=""></button></div>
+                </div>`;
+                
+            }
+        }
+
+        function colorChange(id) {
+            document.getElementById(id).innerHTML = `
+            <button onclick="colorChanger(${id})"class="btn"><img class="png" src="img/heart_red.png" alt=""></button>`
+        }
+
+        function colorChanger(id) {
+            document.getElementById(id).innerHTML = `
+            <button onclick="colorChange(${id})"class="btn"><img class="png" src="img/heart.png" alt=""></button>`
+        }
+
+    </script>
+</head>
+<body onload="show()">
+
+    <div class="header">
+        <h2>Für dich Gefolgt</h2>
+        <div class="second_seperator"></div>
+    </div>
+
+    <div class="left_container">
+        <h1 class="hover">Instagram</h1>
+        <p>
+            <div class="hover string"><img class="png" src="img/house-solid.svg#" alt="house">Startseite <br></div>
+            <div class="hover string"><img class="png" src="img/search.svg" alt="lupe"> Suche <br></div>
+            <div class="hover string"><img class="png" src="img/film-solid.svg" alt="film"> Reels <br></div>
+            <div class="hover string"><img class="png" src="img/user-solid.svg" alt="user"> Profil</div> 
+        </p>
+    </div>
+
+    
+    <div class="seperator"></div>
+
+    <div class="right_container">
+        <h2>Semih Erdogmus</h2>
+        <p class="accounts">
+            <div>Vorschläge für dich <button class="follow">Alle ansehen</button> <br></div>
+            <div>Spider-Man <button class="follow">Folgen</button> <br></div>
+            <div>Ubisoft <button class="follow">Folgen</button> <br></div>
+            <div>Peter Parker <button class="follow">Folgen</button></div>
+        </p>
+    </div>
+
+    <div id="postcontainer"></div>
+    
+</body>
+</html>

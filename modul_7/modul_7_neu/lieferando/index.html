@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIEFERSEM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/assets.css">
+    <link rel="stylesheet" href="styles/basket.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/standard.css">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .icon {
+            width: 24px;
+            padding-right: 8px;
+        }
+
+        header {
+            color: white;
+            background-color: #9402b5;
+            padding: 1px;
+            padding-left: 24px;
+        }
+
+        p {
+            color: black;
+        }
+    </style>
+    
+</head>
+<body onload="render(restaurant)">
+    <header>
+        <h1>LIEFER <img class="icon" src="assets/icon/hat-wizard-solid.svg" alt="">SEM</h1>
+        <p>Die Quelle vom leckerem Essen</p>
+    </header>
+
+    <div id="content"></div>
+
+   <!-- <section class="container mx-auto p-5">
+        <div class="bg-white shadow-md rounded-lg p-5">
+            <h2 class="text-2xl font-semibold mb-4">Lieferadresse eingeben</h2>
+            <input type="text" id="address" placeholder="Deine Adresse..." class="border p-2 w-full rounded-md">
+            <button onclick="searchRestaurants()" class="bg-orange-500 text-white p-2 rounded-md w-full mt-3">Restaurants suchen</button>
+        </div>
+
+        <div id="restaurantList" class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        </div>
+
+        <div class="bg-white shadow-md rounded-lg p-5 mt-5">
+            <h2 class="text-2xl font-semibold mb-4">Warenkorb</h2>
+            <div id="cart"></div>
+            <button onclick="checkout()" class="bg-green-500 text-white p-2 rounded-md w-full mt-3">Bestellung abschließen</button>
+        </div>
+    </section>-->
+</body>
+<script src="scripts/db.js"></script>
+<script src="scripts/template.js"></script>
+<script src="script.js"></script>
+</html>

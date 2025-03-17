@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    font-family: 'Raleway', 'sans-serif';
+    color: black;
+  }
+
+  .margin {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  /* header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  header img {
+    width: 100px;
+  }
+
+  .navlink {
+    color: black;
+    text-decoration: none;
+    margin-left: 16px;
+  } */
+
+  .mt_16 {
+    margin-top: 16px;
+  }
+
+  /* .navlink:hover {
+    color: rgb(98, 156, 10);
+    filter: drop-shadow(0px 0px 4px green);
+  }
+
+  .navimage {
+    height: 24px;
+    width: auto;
+    margin-left: 16px;
+  }
+
+  .navimage:hover {
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 4px #ffffff);
+  } */
+  
+  .aot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  .court {
+    width: -webkit-fill-available;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .cook_information {
+    display: flex;
+    flex-direction: unset;
+    align-items: center;
+    margin-left: 10px;
+  }
+
+  .cook_information_img {
+    width: 20px;
+  }
+
+  .seperator {
+    background-color: gainsboro;
+    width: -webkit-fill-available;
+    height: 1px;
+    margin-top: 50px;
+  }
+
+  form {
+    margin-top: 14px;
+  }
+
+  .portion-input-box {
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1px 80px;
+  }
+
+  .portion-button {
+    background-color: #008000;
+    color: #ffffff;
+    padding: 10px 8px;
+    border: none;
+    text-align: center;
+  }
+
+  tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  table {
+    border-collapse: separate;
+    text-indent: initial;
+    width: -webkit-fill-available;
+    border-radius: 10px;
+}
+
+td {
+  vertical-align: inherit;
+  border-color: inherit;
+  padding: 16px 32px;
+  border-radius: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.profile {
+  width: 56px;
+  border-radius: 50%;
+}
+
+.credits {
+  justify-content: center;
+  margin-top: 30px;
+}
+
+span {
+  text-align: center;
+}
+
+.credit-profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Betse Tanke</title>
+
+    <style>
+      @font-face {
+        font-family: "mainFonts";
+        src: url(fonts/Anta-Regular.ttf);
+      }
+      body {
+        margin: 0;
+        background-color: rgba(200, 200, 200, 0.9);
+        font-family: "mainFonts", sans-serif;
+      }
+
+      h1 {
+        font-size: 48px;
+        margin-bottom: -4px;
+        text-shadow: 0.5px 0px red;
+      }
+
+      .maincontainer {
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .d_none {
+        display: none;
+      }
+
+      p {
+        margin-top: 8px;
+        font-size: 20px;
+      }
+
+      .seperator {
+        padding: 1px;
+        background-color: gray;
+      }
+
+      img {
+        width: 600px;
+        height: 400px;
+      }
+
+      .choose {
+        margin-top: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .margin_right {
+        margin-right: 100px;
+      }
+
+      .month {
+        padding: 70px 25px;
+        width: 100%;
+        background: #1abc9c;
+        text-align: center;
+      }
+
+      .month ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .month ul li {
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+
+      .month .prev {
+        float: left;
+        padding-top: 10px;
+      }
+
+      .month .next {
+        float: right;
+        padding-top: 10px;
+      }
+
+      .weekdays {
+        margin: 0;
+        padding: 10px 0;
+        background-color: #ddd;
+      }
+
+      .weekdays li {
+        display: inline-block;
+        width: 13.6%;
+        color: #666;
+        text-align: center;
+      }
+
+      .days {
+        padding: 10px 0;
+        background: #eee;
+        margin: 0;
+      }
+
+      .days li {
+        list-style-type: none;
+        display: inline-block;
+        width: 13.6%;
+        text-align: center;
+        margin-bottom: 5px;
+        font-size: 12px;
+        color: #777;
+      }
+
+      .days li .active {
+        padding: 5px;
+        background: #1abc9c;
+        color: white !important;
+      }
+    </style>
+
+    <script>
+        let cosima = document.getElementById('cosima');
+        let garching = document.getElementById('garching');
+
+        function garchingHolidays() {
+          let content = document.getElement('content');
+          content.innerHTML = 'hallo';
+          
+          hide(images);
+        }
+
+        function hide(images) {
+          document.getElementById('images').classList.add('d_none');
+        }
+    </script>
+  </head>
+  <body>
+    <div class="maincontainer">
+      <h1>Urlaubsplanung</h1>
+      <p>[made by Sem]</p>
+    </div>
+
+    <div class="seperator"></div>
+
+    <div id="images" class="choose">
+      <a class="margin_right" onclick="garchingHolidays()">
+        <img src="img/garching.jpg" alt="garching" />
+      </a>
+      <a onclick="cosimaHolidays()">
+        <img src="img/cosima.jpg" alt="cosima" />
+      </a>
+    </div>
+
+    <div id="content"></div>
+  </body>
+</html>

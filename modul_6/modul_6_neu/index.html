@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Grundlagen</title>
+   <style>
+    /* .green_bg {
+        background-color: green;
+        width: 50px;
+        height: 50px;
+    } */
+
+    /* .d_none {
+        display: none;
+    } */
+
+    .single_element{
+        color: white;
+        font-size: 12px;
+        padding: 16px;
+        background-color: rgb(40, 39, 42);
+    }
+    .single_element:hover{
+        color: white;
+        font-size: 12px;
+        padding: 16px;
+        background-color: rgb(71, 13, 187);
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.374);
+    }
+
+    .d_none {
+        display: none;
+    }
+   </style>
+</head>
+<body onload="renderFiltered(1)">
+    <div onclick="toggleOverlay()" id="overlay" class="overlay"></div>
+    <h1>Tipps und Tricks</h1>
+    <button onclick="renderFiltered(1)">1</button>
+    <button onclick="renderFiltered(2)">2</button>
+
+    <div id="my_content"></div>
+    
+<!-- <body onload="console.log(123)"> -->
+
+    <!-- <h1 onclick="console.log(1)" id="website_title">Der Titel der Website</h1>
+    <p id="debugger_log"></p>
+    <button onclick="init()">start debugger testing</button> -->
+
+
+
+    <!-- <div id="test_div" class="green_bg"></div>
+    <input id="test_input" type="number" value="5" onkeyup="console.log('keyup')" onkeydown="console.log('keydown')"> -->
+    <!--    
+        onclick, onload, onkeyup... sind alles events. 
+        onkeyup=aktiviert jedes mal wenn taste auf tastatur losgelassen wird
+        onkeydown=aktiviert jedes mal wenn taste gedrückt wird 
+    -->
+        <!-- 
+        <div>
+            <p id="sem_p">Ich bin Sem</p>
+            <p  id="our_p_tag">ich bin das p tag</p>
+            <button onclick="toggleDNone('our_p_tag')">bitte ausführen</button>
+        </div> 
+        -->
+
+    <!-- <input id="sems_input" type="text"> -->
+</body>
+<script src="./template.js"></script>
+</html>
